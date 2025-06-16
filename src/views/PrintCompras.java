@@ -34,7 +34,6 @@ public class PrintCompras extends javax.swing.JFrame {
     //Para recibir le id que se envía desde el controlador Purchases Controller
     public void listAllPurchasesDetails(int id) {
         List<Purchases> list = purchaseDao.listPurchaseDetailQuery(id);
-        JOptionPane.showMessageDialog(null, "Tamaño de la lista de compra" + list.size());
 
         model = (DefaultTableModel) purchase_details_table.getModel();
         Object[] row = new Object[7];
