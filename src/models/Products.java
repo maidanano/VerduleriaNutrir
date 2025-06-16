@@ -11,13 +11,12 @@ public class Products {
     private String created;
     private String updated;
     private int category_id;
-    private int percentage;
     private String category_name;
 
     public Products() {
     }
 
-    public Products(int id, String code, String name, String decription, double unit_price, int product_quantity, String created, String updated, int category_id, int percentage, String category_name) {
+    public Products(int id, String code, String name, String decription, double unit_price, int product_quantity, String created, String updated, int category_id, String category_name) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -27,7 +26,6 @@ public class Products {
         this.created = created;
         this.updated = updated;
         this.category_id = category_id;
-        this.percentage = percentage;
         this.category_name = category_name;
     }
 
@@ -93,14 +91,6 @@ public class Products {
 
     public void setUpdated(String updated) {
         this.updated = updated;
-    }
-
-    public int getPercentage() {
-        return percentage;
-    }
-
-    public void setPercentage(int percentage) {
-        this.percentage = percentage;
     }
 
     public int getCategory_id() {

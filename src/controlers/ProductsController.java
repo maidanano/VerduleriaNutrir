@@ -49,7 +49,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
             if (views.txt_product_code.getText().equals("")
                     || views.txt_product_name.getText().equals("")
                     || views.txt_product_description.getText().equals("")
-                    || views.txt_product_purchase_price.getText().equals("")
+                    || views.txt_product_unit_price.getText().equals("")
                     || views.cmb_product_category.getSelectedItem().toString().equals("")) {
 
                 JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
@@ -57,7 +57,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
                 product.setCode(views.txt_product_code.getText().trim());
                 product.setName(views.txt_product_name.getText().trim());
                 product.setDecription(views.txt_product_description.getText().trim());
-                product.setUnit_price(Double.parseDouble(views.txt_product_purchase_price.getText()));
+                product.setUnit_price(Double.parseDouble(views.txt_product_unit_price.getText()));
                 DynamicCombobox category_id = (DynamicCombobox) views.cmb_product_category.getSelectedItem();
                 product.setCategory_id(category_id.getId());
 
@@ -75,7 +75,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
             if (views.txt_product_code.getText().equals("")
                     || views.txt_product_name.getText().equals("")
                     || views.txt_product_description.getText().equals("")
-                    || views.txt_product_purchase_price.getText().equals("")
+                    || views.txt_product_unit_price.getText().equals("")
                     || views.cmb_product_category.getSelectedItem().toString().equals("")) {
 
                 JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
@@ -83,7 +83,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
                 product.setCode(views.txt_product_code.getText().trim());
                 product.setName(views.txt_product_name.getText().trim());
                 product.setDecription(views.txt_product_description.getText().trim());
-                product.setUnit_price(Double.parseDouble(views.txt_product_purchase_price.getText()));
+                product.setUnit_price(Double.parseDouble(views.txt_product_unit_price.getText()));
 
                 //Obtener el id de la categoría
                 DynamicCombobox category_id = (DynamicCombobox) views.cmb_product_category.getSelectedItem();
@@ -149,7 +149,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
                 views.txt_product_description.setEnabled(false);
                 views.txt_product_id.setEditable(false);
                 views.txt_product_name.setEditable(false);
-                views.txt_product_purchase_price.setEditable(false);
+                views.txt_product_unit_price.setEditable(false);
             }
         }
     }
@@ -163,7 +163,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
             views.txt_product_code.setText("" + product.getCode());
             views.txt_product_name.setText(product.getName());
             views.txt_product_description.setText(product.getDecription());
-            views.txt_product_purchase_price.setText("" + product.getUnit_price());
+            views.txt_product_unit_price.setText("" + product.getUnit_price());
             views.cmb_product_category.setSelectedItem(new DynamicCombobox(product.getCategory_id(), product.getCategory_name()));
 
             //Deshabilitar el boton de registrar
@@ -233,7 +233,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
         views.txt_product_code.setText("");
         views.txt_product_name.setText("");
         views.txt_product_description.setText("");
-        views.txt_product_purchase_price.setText("");
+        views.txt_product_unit_price.setText("");
 
     }
 }

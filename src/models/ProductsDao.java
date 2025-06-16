@@ -225,7 +225,7 @@ public class ProductsDao {
 
     // Registrar producto
     public boolean registerProductQuery(Products product) {
-        String query = "INSERT INTO products (code, name, description, unit_price, product_quantity, created, updated, category_id, percentage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO products (code, name, description, unit_price, product_quantity, created, updated, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         Timestamp datetime = new Timestamp(new Date().getTime());
 
         try (Connection conn = cn.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
@@ -238,7 +238,6 @@ public class ProductsDao {
             pst.setTimestamp(6, datetime);
             pst.setTimestamp(7, datetime);
             pst.setInt(8, product.getCategory_id());
-            pst.setInt(9, product.getPercentage());
             pst.execute();
             return true;
 
@@ -282,7 +281,7 @@ public class ProductsDao {
 
     // Modificar producto
     public boolean updateProductQuery(Products product) {
-        String query = "UPDATE products SET code = ?, name = ?, description = ?, unit_price = ?, product_quantity = ?, updated = ?, category_id = ?, percentage = ? WHERE id = ?";
+        String query = "UPDATE products SET code = ?, name = ?, description = ?, unit_price = ?, product_quantity = ?, updated = ?, category_id = ? WHERE id = ?";
         Timestamp datetime = new Timestamp(new Date().getTime());
 
         try (Connection conn = cn.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
@@ -295,7 +294,6 @@ public class ProductsDao {
             pst.setTimestamp(6, datetime);
             pst.setInt(7, product.getCategory_id());
             pst.setInt(8, product.getId());
-            pst.setInt(9, product.getPercentage());
             pst.execute();
             return true;
 
@@ -340,7 +338,6 @@ public class ProductsDao {
                 product.setProduct_quantity(rs.getInt("product_quantity"));
                 product.setCategory_id(rs.getInt("category_id"));
                 product.setCategory_name(rs.getString("category_name"));
-                product.setPercentage(rs.getInt("percentage"));
             }
 
         } catch (SQLException e) {
